@@ -46,7 +46,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-                <button class="hero-button" type="button">Замовити послугу</button>
+                <button data-open-modal class="hero-button" type="button">Замовити послугу</button>
             </div>
         </section>
         <section>
@@ -361,7 +361,7 @@
                     <li>
                         <a href="" class="social-link foot">
                             <svg width="20" height="20">
-                                <use class="" href="./img/sprites.svg#icon-linkedin"></use>
+                                <use href="./img/sprites.svg#icon-linkedin"></use>
                             </svg>
                         </a>
                     </li>
@@ -369,5 +369,35 @@
             </div>
         </div>
     </footer>
+    <div data-backdrop class="backdrop is-hidden">
+        <div class="modal">
+            <button data-close-modal class="btn-modal">
+                <svg width="11" height="11">
+                    <use href="./img/sprites.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const refs = {
+            openModalBtn: document.querySelector("[data-open-modal]"),
+            closeModalBtn: document.querySelector("[data-close-modal]"),
+            backdrop: document.querySelector("[data-backdrop]"),
+        };
+
+        refs.openModalBtn.addEventListener("click", toggleModal);
+        refs.closeModalBtn.addEventListener("click", toggleModal);
+
+        refs.backdrop.addEventListener("click", logBackdropClick);
+
+        function toggleModal() {
+            refs.backdrop.classList.toggle("is-hidden");
+        }
+
+        function logBackdropClick() {
+            console.log("");
+        }
+    </script>
 </body>
 </html>
