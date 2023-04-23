@@ -66,8 +66,6 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    padding-top: 24px;
-    padding-bottom: 25px;
     background-color: var(--primary-bcg-color);
     z-index: 9;
 }
@@ -109,6 +107,12 @@ header {
 .presentation-list,
 .team-section .list {
     display: flex;
+    align-items: stretch;
+}
+
+.site-nav {
+    height: 48px;
+    margin-top: 32px;
 }
 
 .auth-nav {
@@ -122,12 +126,26 @@ header {
 }
 
 .site-nav .link {
-    color: var(--title-text-color);
+    position: relative;
+    display: inline-block;
+    height: 48px;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+    color: var(--title-text-color);
+}
+
+.link.current::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #2196F3;
+    border-radius: 2px;
 }
 
 .auth-nav .link {
