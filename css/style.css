@@ -26,7 +26,7 @@ body {
     /* margin: 0; */
 }
 
-/* Reset */
+/* ----------------------Reset------------------ */
 h1, 
 h2, 
 h3,
@@ -60,7 +60,7 @@ img {
     margin: -1px;
 }
 
-/* header */
+/* ---------------------header------------------ */
 header {
     position: fixed;
     top: 0;
@@ -135,6 +135,7 @@ header {
     letter-spacing: 0.02em;
     text-decoration: none;
     color: var(--title-text-color);
+    overflow: hidden;
 }
 
 .link.current::after {
@@ -146,6 +147,18 @@ header {
     height: 4px;
     background-color: #2196F3;
     border-radius: 2px;
+    animation-name: current;
+    animation-duration: 700ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes current {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .auth-nav .link {
@@ -173,7 +186,7 @@ header {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hero */
+/* -------------------------Hero------------------------- */
 .hero {
     background-color: #2F303A;
     padding: 200px 0px;
@@ -210,7 +223,7 @@ header {
     border-radius: 4px;
 }
 
-/* Features */
+/* -------------------------Features------------------------ */
 .features {
     margin: 94px 215px;
 
@@ -243,7 +256,7 @@ header {
     display: flex;
 }
 
-/* Presentation */
+/* ---------------------------Presentation-------------------------- */
 .container.head,
 .hero,
 .features,
@@ -302,7 +315,7 @@ header {
     gap: 30px;
 }
 
-/* Team */
+/* ----------------------------Team------------------------- */
 .team-section {
     background-color: var(--secondary-bcg-color);
     padding-top: 94px;
@@ -371,7 +384,7 @@ header {
     fill: var(--primary-bcg-color);   
 }
 
-/* Clients */
+/* ----------------------------Clients------------------------- */
 .clients-title {
     margin-top: 94px;
     margin-bottom: 50px;
@@ -416,7 +429,7 @@ header {
      
 }
 
-/* Footer */
+/* ----------------------Footer------------------- */
 .foot-container {
     display: flex;
 }
@@ -487,6 +500,7 @@ footer {
     padding: 60px 0;
 }
 
+/* ------------------------modal---------------------- */
 .backdrop {
     position: fixed;
     top: 0;
@@ -494,11 +508,28 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(33, 150, 243, 0.5);
+    transition: opacity 1000ms, visibility 1000ms;
 }
 
 .backdrop.is-hidden {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+    position: absolute;
+    left: -530px;
+}
+
+.hide-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+    overflow: hidden;
 }
 
 .modal {
@@ -507,8 +538,9 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 528px;
-    height: 581px;
+    min-height: 581px;
     background-color: var(--primary-bcg-color);
+    transition: transform 1000ms, left 300ms;
 }
 
 .btn-modal {
@@ -526,7 +558,7 @@ footer {
     border-radius: 50%;
 }
 
-/* portfolio */
+/* -----------------------portfolio--------------------- */
 .portfolio .link {
     text-decoration: none;
 }

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -370,34 +371,17 @@
         </div>
     </footer>
     <div data-backdrop class="backdrop is-hidden">
-        <div class="modal">
-            <button data-close-modal class="btn-modal">
-                <svg width="11" height="11">
-                    <use href="./img/sprites.svg#icon-close"></use>
-                </svg>
-            </button>
+        <div class="hide-modal">
+            <div class="modal">
+                <button data-close-modal class="btn-modal">
+                    <svg width="11" height="11">
+                        <use href="./img/sprites.svg#icon-close"></use>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 
-    <script>
-        const refs = {
-            openModalBtn: document.querySelector("[data-open-modal]"),
-            closeModalBtn: document.querySelector("[data-close-modal]"),
-            backdrop: document.querySelector("[data-backdrop]"),
-        };
-
-        refs.openModalBtn.addEventListener("click", toggleModal);
-        refs.closeModalBtn.addEventListener("click", toggleModal);
-
-        refs.backdrop.addEventListener("click", logBackdropClick);
-
-        function toggleModal() {
-            refs.backdrop.classList.toggle("is-hidden");
-        }
-
-        function logBackdropClick() {
-            console.log("");
-        }
-    </script>
+    <script src="./js/js"></script>
 </body>
 </html>
